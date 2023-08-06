@@ -10,6 +10,15 @@ import views.terminal.TerminalView;
 
 public class ClassicGame implements Game {
 
+    public ClassicGame(GameView view) {
+        this.isGameOver = false;
+        this.whitePlayer = new ClassicPlayer("white");
+        this.blackPlayer = new ClassicPlayer("black");
+        this.previousMoves = new String[] {};
+        this.currentTurn = this.whitePlayer;
+        this.view = view;
+    }
+
     public ClassicGame() {
         this.isGameOver = false;
         this.whitePlayer = new ClassicPlayer("white");
