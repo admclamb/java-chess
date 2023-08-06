@@ -5,7 +5,6 @@ import common.Game;
 import common.GameValidator;
 import common.Move;
 import common.Player;
-import views.gui.GameWindow;
 import views.terminal.GameView;
 import views.terminal.TerminalView;
 
