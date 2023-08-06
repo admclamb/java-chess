@@ -2,11 +2,13 @@ package views.terminal;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import common.Board;
+import common.Player;
 import common.Square;
 
-public class TerminalView {
+public class TerminalView implements GameView {
 
     public TerminalView() {
         this.pieces = new HashMap<String, String>() {
@@ -46,5 +48,11 @@ public class TerminalView {
         System.out.println("   a b c d e f g h");
     }
 
+    public String getMove(Player player) {
+        System.out.println(player.getColor() + " move:");
+        return TerminalView.scanner.nextLine();
+    }
+
     private Map<String, String> pieces;
+    private static final Scanner scanner = new Scanner(System.in);
 }

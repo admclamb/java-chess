@@ -2,8 +2,12 @@ package classical;
 
 import common.Board;
 import common.Game;
+import common.GameValidator;
+import common.Move;
 import common.Player;
 import views.gui.GameWindow;
+import views.terminal.GameView;
+import views.terminal.TerminalView;
 
 public class ClassicGame implements Game {
 
@@ -13,18 +17,28 @@ public class ClassicGame implements Game {
         this.blackPlayer = new ClassicPlayer("black");
         this.previousMoves = new String[] {};
         this.currentTurn = this.whitePlayer;
+        this.view = new TerminalView();
     }
 
     public void start() {
-        GameWindow.createWindow("Classic Chess", 500, 500);
         while (!isGameOver) {
-
+            String playerMove = view.getMove(currentTurn);
+            Move parsedMove = ClassicGame.VALIDATOR.parseMove(playerMove);
+            ClassicGame.VALIDATOR.validate(board, parsedMove);
         }
     }
 
     public void setup() {
         this.board = new Board();
         this.board.init();
+    }
+
+    private void makeTurn() {
+
+    }
+
+    private void render() {
+        this.view.render(board);
     }
 
     private void changeTurn() {
@@ -37,4 +51,6 @@ public class ClassicGame implements Game {
     private Player currentTurn;
     private Player whitePlayer;
     private Player blackPlayer;
+    private GameView view;
+    private static final GameValidator VALIDATOR = new ClassicGameValidator();
 }
