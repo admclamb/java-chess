@@ -1,4 +1,4 @@
-package classical.pieces;
+package games.classical.pieces;
 
 public class Bishop implements Piece {
 

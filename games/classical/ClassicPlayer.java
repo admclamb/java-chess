@@ -1,4 +1,4 @@
-package classical;
+package games.classical;
 
 import common.Player;
 

@@ -1,12 +1,12 @@
 package common;
 
-import classical.pieces.Bishop;
-import classical.pieces.King;
-import classical.pieces.Knight;
-import classical.pieces.Pawn;
-import classical.pieces.Queen;
-import classical.pieces.Rook;
 import errors.SquareOccupiedException;
+import games.classical.pieces.Bishop;
+import games.classical.pieces.King;
+import games.classical.pieces.Knight;
+import games.classical.pieces.Pawn;
+import games.classical.pieces.Queen;
+import games.classical.pieces.Rook;
 
 public class Board {
 

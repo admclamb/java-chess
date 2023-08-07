@@ -1,5 +1,5 @@
-import classical.ClassicGame;
 import common.Game;
+import games.classical.ClassicGame;
 
 public class JavaChess {
 

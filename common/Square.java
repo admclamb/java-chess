@@ -1,7 +1,7 @@
 package common;
 
-import classical.pieces.Piece;
 import errors.SquareOccupiedException;
+import games.classical.pieces.Piece;
 
 public class Square {
 

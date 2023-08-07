@@ -1,10 +1,11 @@
-package classical;
+package games.classical;
 
 import common.Board;
 import common.Game;
 import common.GameValidator;
 import common.Move;
 import common.Player;
+import errors.InvalidMoveException;
 import views.terminal.GameView;
 import views.terminal.TerminalView;
 
@@ -30,9 +31,11 @@ public class ClassicGame implements Game {
 
     public void start() {
         while (!isGameOver) {
-            String playerMove = view.getMove(currentTurn);
-            Move parsedMove = ClassicGame.VALIDATOR.parseMove(playerMove);
-            ClassicGame.VALIDATOR.validate(board, parsedMove);
+            this.makeTurn();
+
+            if (isCheckmate()) {
+                isGameOver = true;
+            }
         }
     }
 
@@ -42,7 +45,21 @@ public class ClassicGame implements Game {
     }
 
     private void makeTurn() {
+        try {
+            String playerMove = view.getMove(currentTurn);
+            Move parsedMove = ClassicGame.VALIDATOR.parseMove(playerMove);
+            boolean isValidMove = ClassicGame.VALIDATOR.validate(board, parsedMove);
+            if (!isValidMove) {
+                throw new InvalidMoveException("The move: '" + playerMove + "' is invalid.");
+            }
+        } catch (InvalidMoveException e) {
+            System.out.println(e.getMessage());
+        }
 
+    }
+
+    private boolean isCheckmate() {
+        return false;
     }
 
     private void render() {

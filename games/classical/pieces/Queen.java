@@ -1,4 +1,4 @@
-package classical.pieces;
+package games.classical.pieces;
 
 public class Queen implements Piece {
     public Queen(String color) {

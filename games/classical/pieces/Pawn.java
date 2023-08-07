@@ -1,16 +1,16 @@
-package classical.pieces;
+package games.classical.pieces;
 
-public class Rook implements Piece {
-    public Rook(String color) {
+public class Pawn implements Piece {
+    public Pawn(String color) {
         this.color = color;
     }
 
     public String getName() {
-        return Rook.NAME;
+        return Pawn.NAME;
     }
 
     public char getNameFirstChar() {
-        return Rook.NAME.charAt(0);
+        return Pawn.NAME.charAt(0);
     }
 
     public String getColor() {
@@ -18,5 +18,5 @@ public class Rook implements Piece {
     }
 
     private String color;
-    private static final String NAME = "Rook";
+    private static final String NAME = "Pawn";
 }
